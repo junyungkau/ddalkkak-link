@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>원클릭 유니온 — 링크 모음</title>
 <meta property="og:title" content="원클릭 유니온 — 수도권 대학생 바이브 코딩 연합 동아리">
-<meta property="og:description" content="코딩 몰라도 만드는 동아리. 직접 써보고 신청하세요.">
+<meta property="og:description" content="코딩 몰라도 지원 가능한 개발자 공채 · 2026 하반기 모집. 직접 써보고 신청하세요.">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <style>
@@ -23,7 +23,7 @@
   *{ box-sizing:border-box; margin:0; }
   body{
     background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(47,91,255,0.12), transparent 60%), var(--paper);
-    color:var(--ink); font-family:var(--body); min-height:100vh;
+    color:var(--ink); font-family:var(--body); min-height:100vh; word-break:keep-all;
     display:flex; justify-content:center;
   }
   @media (prefers-reduced-motion: reduce){ *{ animation:none!important; transition:none!important; } }
@@ -66,6 +66,52 @@
   a.cta .s{ color:rgba(255,255,255,0.8); }
   .arrow{ font-family:var(--display); font-size:1.3rem; opacity:0.5; }
 
+  .panel{
+    background:var(--bubble); border:2.5px solid var(--ink); border-radius:16px;
+    box-shadow:4px 5px 0 var(--ink); overflow:hidden; margin-bottom:12px;
+  }
+  .panel .cap{
+    font-size:0.78rem; font-weight:600; color:var(--muted); line-height:1.5;
+    padding:12px 18px; border-bottom:1.5px solid rgba(20,26,46,0.12);
+  }
+  .panel .cap b{ color:var(--ink); }
+  .week{
+    display:grid; grid-template-columns:34px 1fr; gap:10px;
+    padding:12px 18px; border-bottom:1.5px solid rgba(20,26,46,0.08);
+  }
+  .week:last-child{ border-bottom:0; }
+  .week .w{ font-family:var(--mono); font-weight:700; font-size:0.8rem; color:var(--cobalt); padding-top:3px; }
+  .week .t{ font-weight:800; font-size:0.98rem; }
+  .week .s{ font-size:0.8rem; color:var(--muted); margin-top:2px; }
+  .tag{
+    display:inline-block; font-size:0.66rem; font-weight:700; vertical-align:2px;
+    padding:2px 8px; margin-left:4px; border-radius:999px;
+    background:rgba(47,91,255,0.12); color:var(--cobalt);
+  }
+  .week.final{ background:var(--cobalt); color:#fff; }
+  .week.final .w{ color:rgba(255,255,255,0.75); }
+  .week.final .s{ color:rgba(255,255,255,0.85); }
+  .row{
+    display:grid; grid-template-columns:64px 1fr; gap:8px;
+    padding:11px 18px; border-bottom:1.5px solid rgba(20,26,46,0.08);
+    font-size:0.9rem; font-weight:600; line-height:1.45;
+  }
+  .row:last-child{ border-bottom:0; }
+  .row .k{ font-size:0.8rem; font-weight:800; color:var(--muted); padding-top:1px; }
+  details.faq{
+    background:var(--bubble); border:2.5px solid var(--ink); border-radius:16px;
+    box-shadow:3px 4px 0 var(--ink); margin-bottom:10px;
+  }
+  details.faq summary{
+    list-style:none; cursor:pointer;
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    padding:14px 18px; font-weight:800; font-size:0.95rem;
+  }
+  details.faq summary::-webkit-details-marker{ display:none; }
+  details.faq summary::after{ content:'+'; font-family:var(--display); font-size:1.3rem; opacity:0.5; }
+  details.faq[open] summary::after{ content:'−'; }
+  details.faq p{ padding:0 18px 16px; font-size:0.86rem; color:var(--muted); line-height:1.6; font-weight:500; }
+
   footer{ text-align:center; margin-top:40px; font-family:var(--mono); font-size:0.72rem; color:var(--muted); }
 </style>
 </head>
@@ -74,13 +120,13 @@
   <div class="head">
     <div class="logo">원클릭 <span class="spark">유니온</span></div>
     <div class="desc">수도권 대학생 바이브 코딩 연합 동아리</div>
-    <span class="badge">⚡ 1기 모집 중</span>
+    <span class="badge">⚡ 2026 하반기 모집 중</span>
   </div>
 
   <div class="section-label">▶ 지금 신청하기</div>
   <a class="link cta" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">
     <span class="emoji">📝</span>
-    <span class="txt"><div class="t">1기 지원서 작성</div><div class="s">3분이면 끝나요 · 선착순</div></span>
+    <span class="txt"><div class="t">하반기 지원서 작성</div><div class="s">3분이면 끝나요 · 선착순</div></span>
     <span class="arrow">→</span>
   </a>
 
@@ -101,17 +147,62 @@
     <span class="arrow">→</span>
   </a>
 
-  <div class="section-label">▶ 더 알아보기</div>
-  <a class="link" href="https://unleashed-postage-694.notion.site/330ae266154e43b6998df7d6d3eafa33" target="_blank" rel="noopener" id="notion-link">
-    <span class="emoji">📚</span>
-    <span class="txt"><div class="t">6주 커리큘럼 보기</div><div class="s">노션에서 상세 일정 확인</div></span>
+  <div class="section-label">▶ 6주 커리큘럼</div>
+  <div class="panel">
+    <div class="cap">매 회차 <b>시연 10분 → 실습 60분 → 공유 15분 → 과제 안내 5분</b></div>
+    <div class="week"><span class="w">W1</span><div><div class="t">아이디어를 첫 화면으로</div><div class="s">내 서비스의 얼굴이 될 배포된 페이지</div></div></div>
+    <div class="week"><span class="w">W2</span><div><div class="t">무료 AI를 심장으로 <span class="tag">내 AI 서비스 완성</span></div><div class="s">AI가 실제로 작동하는 내 서비스</div></div></div>
+    <div class="week"><span class="w">W3</span><div><div class="t">진짜 사용자를 위한 다듬기</div><div class="s">남이 써도 안 깨지는 완성도 있는 v1</div></div></div>
+    <div class="week"><span class="w">W4</span><div><div class="t">데이터로 똑똑하게 <span class="tag">선택 심화</span></div><div class="s">데이터·기능이 확장된 서비스</div></div></div>
+    <div class="week"><span class="w">W5</span><div><div class="t">완성으로 몰아가기 <span class="tag">학교 섞인 팀</span></div><div class="s">팀 리뷰로 마무리된 서비스</div></div></div>
+    <div class="week final"><span class="w">W6</span><div><div class="t">데모데이, 다 같이 발표</div><div class="s">배포 링크 + 발표 경험 + 네트워크</div></div></div>
+  </div>
+
+  <div class="section-label">▶ 모집 정보</div>
+  <div class="panel">
+    <div class="row"><span class="k">대상</span><span>수도권 대학(원) 재학·휴학생 누구나 (전공·경험 무관)</span></div>
+    <div class="row"><span class="k">인원</span><span>30명 (학교당 최대 5명)</span></div>
+    <div class="row"><span class="k">기간</span><span>6주 · 격주 토요일 오후</span></div>
+    <div class="row"><span class="k">장소</span><span>강남 · 홍대 · 신도림 등 스터디룸</span></div>
+    <div class="row"><span class="k">비용</span><span>회비 없음 (개인 AI 구독만 필요)</span></div>
+    <div class="row"><span class="k">준비물</span><span>노트북, 만들고 싶은 것 하나</span></div>
+  </div>
+
+  <div class="section-label">▶ 자주 묻는 질문</div>
+  <details class="faq">
+    <summary>진짜 코딩 아예 몰라도 되나요?</summary>
+    <p>네. 1주차부터 AI가 코드를 대신 짜줍니다. 여러분은 '무엇을 만들지'만 생각하면 돼요. 오히려 코딩을 몰라도 편견 없이 잘 시작합니다.</p>
+  </details>
+  <details class="faq">
+    <summary>AI 구독은 꼭 필요한가요?</summary>
+    <p>원활한 실습을 위해 권장하지만, 수업에서 무료 도구·무료 API도 함께 다룹니다.</p>
+  </details>
+  <details class="faq">
+    <summary>우리 학교도 대상인가요?</summary>
+    <p>수도권 소재 대학이면 어디든 환영합니다. '연합' 동아리라 여러 학교 학생들이 함께해요.</p>
+  </details>
+  <details class="faq">
+    <summary>노트북이 없으면 참여할 수 있나요?</summary>
+    <p>노트북은 필수입니다. 조원과 함께 볼 수는 있지만 개인 노트북을 권장합니다.</p>
+  </details>
+  <details class="faq">
+    <summary>격주면 시간 부담이 적나요?</summary>
+    <p>네. 2주에 한 번 토요일에 진행합니다.</p>
+  </details>
+
+  <div class="section-label">▶ 마음 정했다면</div>
+  <a class="link cta" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">
+    <span class="emoji">📝</span>
+    <span class="txt"><div class="t">하반기 지원서 작성</div><div class="s">3분이면 끝나요 · 선착순</div></span>
     <span class="arrow">→</span>
   </a>
-  <a class="link" href="https://instagram.com/click.union" target="_blank" rel="noopener">
-    <span class="emoji">📷</span>
-    <span class="txt"><div class="t">인스타그램</div><div class="s">@click.union</div></span>
+  <!-- 오픈카톡 문의방 링크가 생기면 href 채우고 주석 해제
+  <a class="link" href="https://open.kakao.com/o/XXXXXXX" target="_blank" rel="noopener">
+    <span class="emoji">💬</span>
+    <span class="txt"><div class="t">오픈카톡 문의방</div><div class="s">궁금한 건 편하게 물어보세요</div></span>
     <span class="arrow">→</span>
   </a>
+  -->
 
   <footer>이 페이지도 원클릭 유니온 1주차 실습으로 만들 수 있어요 ⚡</footer>
 </div>
