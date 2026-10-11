@@ -2,208 +2,586 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>원클릭 유니온 — 링크 모음</title>
-<meta property="og:title" content="원클릭 유니온 — 수도권 대학생 바이브 코딩 연합 동아리">
-<meta property="og:description" content="코딩 몰라도 지원 가능한 개발자 공채 · 2026 하반기 모집. 직접 써보고 신청하세요.">
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>원클릭 유니온 — 코딩 몰라도 지원 가능한 개발자 공채</title>
+<meta name="description" content="수도권 대학생 바이브 코딩 연합 동아리 원클릭 유니온 2026 하반기 모집. AI한테 말로 시켜서 6주 만에 내 서비스를 배포까지.">
+<meta name="theme-color" content="#0E1B3D">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oneclick-link.vercel.app/">
+<meta property="og:title" content="원클릭 유니온 | 코딩 몰라도 지원 가능한 개발자 공채">
+<meta property="og:description" content="수도권 대학생 바이브 코딩 연합 동아리 · 2026 하반기 모집. 6주 만에 내 서비스를 배포까지.">
+<meta property="og:image" content="https://oneclick-link.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F54FF'/%3E%3Cpath d='M22 14 L22 46 L30 39 L35.5 51 L41 48.5 L35.5 37 L46.5 37 Z' fill='%23fff' stroke='%23fff' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-  @font-face{
-    font-family:'Moneygraphy-Rounded';
-    src:url('https://cdn.jsdelivr.net/gh/fontbee/font@main/Toss/Moneygraphy-Rounded.woff2') format('woff2');
-    font-display:swap;
-  }
   :root{
-    --paper:#eef1f7; --ink:#141a2e; --cobalt:#2f5bff; --bubble:#fff;
-    --spark:#ffd44d; --muted:rgba(20,26,46,0.55);
-    --display:'Moneygraphy-Rounded','Do Hyeon',sans-serif;
+    --navy:#0E1B3D; --navy-2:#16244F; --blue:#2F54FF; --blue-2:#8FA2FF; --blue-soft:#EEF2FF;
+    --bg:#F4F6FA; --card:#fff; --ink:#0E1B3D; --muted:#5B6478; --line:#DDE2EC;
     --body:'Pretendard',sans-serif; --mono:'JetBrains Mono',monospace;
   }
-  *{ box-sizing:border-box; margin:0; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
   body{
-    background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(47,91,255,0.12), transparent 60%), var(--paper);
-    color:var(--ink); font-family:var(--body); min-height:100vh; word-break:keep-all;
-    display:flex; justify-content:center;
+    background:var(--bg); color:var(--ink); font-family:var(--body);
+    -webkit-font-smoothing:antialiased; word-break:keep-all;
+    padding-bottom:calc(96px + env(safe-area-inset-bottom));
   }
-  @media (prefers-reduced-motion: reduce){ *{ animation:none!important; transition:none!important; } }
-  .wrap{ width:100%; max-width:440px; padding:56px 22px 60px; }
+  a{ color:inherit; }
+  .col{ width:100%; max-width:520px; margin:0 auto; padding:0 20px; }
+  .mono{ font-family:var(--mono); }
+  :focus-visible{ outline:3px solid var(--blue-2); outline-offset:3px; border-radius:8px; }
 
-  .head{ text-align:center; margin-bottom:36px; }
-  .logo{
-    font-family:var(--display); font-size:2.6rem; line-height:1.1;
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; overflow:hidden; color:#fff;
+    background:
+      radial-gradient(circle at 70% 58%, rgba(47,84,255,.5), rgba(47,84,255,0) 55%),
+      var(--navy);
+    padding-bottom:40px;
   }
-  .logo .spark{ background:linear-gradient(transparent 58%, var(--spark) 58%); padding:0 4px; }
-  .desc{ color:var(--muted); font-size:0.92rem; margin-top:10px; font-weight:600; }
+  .hero::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:40px 40px;
+    -webkit-mask-image:linear-gradient(180deg,#000 40%,transparent);
+            mask-image:linear-gradient(180deg,#000 40%,transparent);
+  }
+  .hero .col{ position:relative; }
+  .topbar{ display:flex; align-items:center; justify-content:space-between; padding:22px 0 0; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:15px; letter-spacing:.03em; }
+  .mark{ width:30px; height:30px; border-radius:9px; background:var(--blue); display:grid; place-items:center; flex-shrink:0; }
+  .status{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:700; padding:7px 12px; border-radius:999px;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18);
+  }
+  .status i{ width:8px; height:8px; border-radius:50%; background:#34D399; box-shadow:0 0 0 0 rgba(52,211,153,.6); animation:pulse 2s infinite; }
+  @keyframes pulse{ 70%{ box-shadow:0 0 0 8px rgba(52,211,153,0); } 100%{ box-shadow:0 0 0 0 rgba(52,211,153,0); } }
+
+  .kicker{ margin-top:44px; font-size:clamp(22px,6.4vw,30px); font-weight:800; letter-spacing:-.035em; color:var(--blue-2); }
+  h1{ margin-top:4px; font-size:clamp(68px,20vw,104px); font-weight:900; letter-spacing:-.065em; line-height:1; }
+  .lead{ margin-top:18px; font-size:16px; line-height:1.65; color:#C3CBE3; font-weight:500; }
+  .lead b{ color:#fff; font-weight:700; }
+
+  .badge-stage{ position:relative; height:384px; margin-top:12px; }
+  .lanyard{ position:absolute; left:50%; top:0; width:180px; height:86px; transform:translateX(-50%); -webkit-mask-image:linear-gradient(180deg,transparent,#000 55%); mask-image:linear-gradient(180deg,transparent,#000 55%); }
   .badge{
-    display:inline-block; margin-top:14px;
-    font-family:var(--mono); font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
-    border:2px solid var(--ink); border-radius:999px; padding:6px 16px; background:var(--bubble);
+    position:absolute; left:50%; top:74px; width:208px; margin-left:-104px;
+    background:#fff; color:var(--navy); border-radius:20px; overflow:hidden;
+    box-shadow:0 40px 60px -24px rgba(0,0,0,.6);
+    display:flex; flex-direction:column; align-items:center;
+    transform-origin:50% 0; transform:rotate(5deg);
   }
+  .badge.swing{ animation:swing 1.6s cubic-bezier(.3,.6,.3,1) both; }
+  @keyframes swing{
+    0%{ transform:rotate(16deg); } 30%{ transform:rotate(-3deg); } 55%{ transform:rotate(9deg); }
+    78%{ transform:rotate(4deg); } 100%{ transform:rotate(5deg); }
+  }
+  .badge .slot{ margin-top:14px; width:52px; height:9px; border-radius:99px; background:var(--line); }
+  .badge .bbrand{ margin-top:12px; display:flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:.03em; }
+  .badge .bbrand .mark{ width:20px; height:20px; border-radius:6px; }
+  .badge .photo{ margin-top:12px; width:86px; height:98px; border-radius:12px; background:var(--blue-soft); overflow:hidden; }
+  .badge .name{
+    margin-top:12px; max-width:180px; padding:0 8px;
+    font-size:22px; font-weight:900; letter-spacing:-.02em; text-align:center;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .badge .role{ margin-top:2px; font-size:12.5px; font-weight:700; color:var(--blue); }
+  .badge .code{ margin-top:12px; width:100%; padding:0 24px 9px; display:flex; flex-direction:column; align-items:center; gap:4px; }
+  .badge .bars{ width:100%; height:20px; display:block; }
+  .badge .num{ font-family:var(--mono); font-size:9px; color:var(--muted); letter-spacing:.14em; }
+  .badge .stripe{ width:100%; height:9px; background:var(--blue); }
 
-  .section-label{
-    font-family:var(--mono); font-size:0.7rem; font-weight:700; letter-spacing:0.14em;
-    color:var(--cobalt); margin:28px 4px 12px;
+  .try label{ display:block; font-size:13px; font-weight:700; color:var(--blue-2); margin-bottom:8px; }
+  .try input{
+    width:100%; font:inherit; font-size:17px; font-weight:700; color:#fff;
+    background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.22); border-radius:14px;
+    padding:14px 16px;
   }
-  a.link{
-    display:flex; align-items:center; gap:14px;
-    background:var(--bubble); border:2.5px solid var(--ink); border-radius:16px;
-    box-shadow:4px 5px 0 var(--ink);
-    padding:16px 18px; margin-bottom:12px; text-decoration:none; color:var(--ink);
-    transition:transform .12s, box-shadow .12s;
-  }
-  a.link:hover{ transform:translate(-2px,-2px); box-shadow:6px 7px 0 var(--ink); }
-  a.link:active{ transform:translate(0,0); box-shadow:2px 3px 0 var(--ink); }
-  a.cta{ background:var(--cobalt); color:#fff; }
-  a.cta .emoji{ background:rgba(255,255,255,0.2); }
-  .emoji{
-    flex-shrink:0; width:44px; height:44px; border-radius:12px;
-    background:var(--paper); display:grid; place-items:center; font-size:22px;
-  }
-  .link .txt{ flex:1; }
-  .link .t{ font-weight:800; font-size:1.02rem; }
-  .link .s{ font-size:0.8rem; color:var(--muted); margin-top:2px; }
-  a.cta .s{ color:rgba(255,255,255,0.8); }
-  .arrow{ font-family:var(--display); font-size:1.3rem; opacity:0.5; }
+  .try input::placeholder{ color:rgba(255,255,255,.45); font-weight:500; }
+  .try input:focus{ outline:none; border-color:var(--blue-2); background:rgba(255,255,255,.12); }
 
-  .panel{
-    background:var(--bubble); border:2.5px solid var(--ink); border-radius:16px;
-    box-shadow:4px 5px 0 var(--ink); overflow:hidden; margin-bottom:12px;
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; text-decoration:none; font-weight:800; font-size:17px; letter-spacing:-.02em;
+    padding:17px 20px; border-radius:14px; transition:transform .12s, box-shadow .12s, background .12s;
   }
-  .panel .cap{
-    font-size:0.78rem; font-weight:600; color:var(--muted); line-height:1.5;
-    padding:12px 18px; border-bottom:1.5px solid rgba(20,26,46,0.12);
+  .btn:active{ transform:scale(.98); }
+  .btn-primary{ background:var(--blue); color:#fff; box-shadow:0 12px 30px -12px rgba(47,84,255,.8); }
+  .btn-primary:hover{ background:#2647E6; }
+  .btn-ghost{ background:#fff; color:var(--navy); border:1.5px solid var(--line); }
+  .btn-ghost:hover{ border-color:var(--navy); }
+  .hero .btn-primary{ margin-top:12px; }
+  .hero .fine{ margin-top:12px; text-align:center; font-size:13px; color:#9AA6C8; font-weight:600; }
+
+  /* ---------- stats ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    background:#fff; border:1px solid var(--line); border-radius:18px;
+    margin-top:-1px; position:relative; top:-22px;
+    box-shadow:0 18px 40px -24px rgba(14,27,61,.35);
   }
-  .panel .cap b{ color:var(--ink); }
-  .week{
-    display:grid; grid-template-columns:34px 1fr; gap:10px;
-    padding:12px 18px; border-bottom:1.5px solid rgba(20,26,46,0.08);
+  .stat{ padding:16px 6px 15px; text-align:center; }
+  .stat + .stat{ border-left:1px solid var(--line); }
+  .stat b{ display:block; font-size:22px; font-weight:900; letter-spacing:-.04em; }
+  .stat span{ display:block; margin-top:3px; font-size:11.5px; font-weight:600; color:var(--muted); line-height:1.35; }
+
+  /* ---------- sections ---------- */
+  section.block{ padding:30px 0 6px; }
+  .eyebrow{ font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:.14em; color:var(--blue); }
+  h2{ margin-top:8px; font-size:26px; font-weight:900; letter-spacing:-.045em; line-height:1.3; }
+  .desc{ margin-top:8px; font-size:15px; color:var(--muted); font-weight:500; line-height:1.6; }
+  .desc b{ color:var(--ink); font-weight:700; }
+
+  /* demos */
+  .demo{
+    display:block; text-decoration:none; margin-top:14px;
+    background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    transition:border-color .15s, transform .15s, box-shadow .15s;
   }
-  .week:last-child{ border-bottom:0; }
-  .week .w{ font-family:var(--mono); font-weight:700; font-size:0.8rem; color:var(--cobalt); padding-top:3px; }
-  .week .t{ font-weight:800; font-size:0.98rem; }
-  .week .s{ font-size:0.8rem; color:var(--muted); margin-top:2px; }
-  .tag{
-    display:inline-block; font-size:0.66rem; font-weight:700; vertical-align:2px;
-    padding:2px 8px; margin-left:4px; border-radius:999px;
-    background:rgba(47,91,255,0.12); color:var(--cobalt);
+  .demo:hover{ border-color:var(--blue); transform:translateY(-2px); box-shadow:0 16px 34px -22px rgba(47,84,255,.6); }
+  .demo-head{ display:flex; align-items:center; gap:12px; padding:16px 18px 14px; }
+  .ic{ width:40px; height:40px; border-radius:12px; background:var(--blue-soft); display:grid; place-items:center; flex-shrink:0; }
+  .demo-head .t{ font-size:17px; font-weight:800; letter-spacing:-.03em; }
+  .demo-head .s{ font-size:13px; color:var(--muted); font-weight:500; margin-top:1px; }
+  .demo-head .go{ margin-left:auto; font-size:13px; font-weight:800; color:var(--blue); white-space:nowrap; }
+  .io{ border-top:1px solid var(--line); background:#FAFBFD; padding:14px 18px 16px; }
+  .io .lbl{ font-size:12px; font-weight:800; color:var(--muted); }
+  .io .in{
+    margin-top:6px; display:inline-block; max-width:100%;
+    background:#fff; border:1px solid var(--line); border-radius:4px 14px 14px 14px;
+    padding:10px 13px; font-size:14px; font-weight:600; line-height:1.5;
   }
-  .week.final{ background:var(--cobalt); color:#fff; }
-  .week.final .w{ color:rgba(255,255,255,0.75); }
-  .week.final .s{ color:rgba(255,255,255,0.85); }
-  .row{
-    display:grid; grid-template-columns:64px 1fr; gap:8px;
-    padding:11px 18px; border-bottom:1.5px solid rgba(20,26,46,0.08);
-    font-size:0.9rem; font-weight:600; line-height:1.45;
+  .io .arrow{ margin:10px 0 8px; display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:var(--blue); }
+  .io .arrow::after{ content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--blue),transparent); }
+  .io .out{ font-size:14px; line-height:1.6; font-weight:500; }
+  .io .out p + p{ margin-top:6px; }
+  .io .out ol{ list-style:none; counter-reset:n; }
+  .io .out ol li{ counter-increment:n; position:relative; padding-left:24px; }
+  .io .out ol li + li{ margin-top:5px; }
+  .io .out ol li::before{
+    content:counter(n); position:absolute; left:0; top:2px; width:17px; height:17px; border-radius:5px;
+    background:var(--blue); color:#fff; font-family:var(--mono); font-size:11px; font-weight:700;
+    display:grid; place-items:center;
   }
-  .row:last-child{ border-bottom:0; }
-  .row .k{ font-size:0.8rem; font-weight:800; color:var(--muted); padding-top:1px; }
-  details.faq{
-    background:var(--bubble); border:2.5px solid var(--ink); border-radius:16px;
-    box-shadow:3px 4px 0 var(--ink); margin-bottom:10px;
+  .kw{ margin-top:10px; display:flex; flex-wrap:wrap; gap:6px; }
+  .kw span, .chip{
+    font-size:12px; font-weight:700; padding:4px 10px; border-radius:999px;
+    background:var(--blue-soft); color:var(--blue);
   }
+  .mail{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:6px; }
+
+  /* timeline */
+  .cap{
+    margin-top:14px; display:flex; flex-wrap:wrap; gap:6px; align-items:center;
+    font-size:13px; font-weight:700; color:var(--muted);
+  }
+  .cap .chip{ background:#fff; border:1px solid var(--line); color:var(--ink); }
+  .timeline{ list-style:none; margin-top:16px; position:relative; }
+  .timeline::before{ content:""; position:absolute; left:19px; top:20px; bottom:20px; width:2px; background:var(--line); }
+  .timeline li{ position:relative; display:grid; grid-template-columns:40px 1fr; gap:14px; padding:10px 0; }
+  .node{
+    position:relative; z-index:1; width:40px; height:40px; border-radius:12px;
+    background:#fff; border:1.5px solid var(--line);
+    display:grid; place-items:center; font-family:var(--mono); font-size:12px; font-weight:700; color:var(--blue);
+  }
+  .timeline .t{ font-size:16.5px; font-weight:800; letter-spacing:-.03em; padding-top:2px; }
+  .timeline .s{ font-size:13.5px; color:var(--muted); margin-top:3px; font-weight:500; }
+  .timeline .tag{ display:inline-block; vertical-align:2px; margin-left:4px; font-size:11px; font-weight:700; padding:2px 8px; border-radius:999px; background:var(--blue-soft); color:var(--blue); }
+  .timeline .tag.opt{ background:#EBEEF4; color:var(--muted); }
+  .timeline li.final .node{ background:var(--blue); border-color:var(--blue); color:#fff; }
+  .timeline li.final .body{ background:var(--navy); color:#fff; border-radius:14px; padding:12px 14px; margin-top:-2px; }
+  .timeline li.final .s{ color:#C3CBE3; }
+
+  /* steps */
+  .steps{ margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:10px; counter-reset:st; }
+  .step{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px 15px 15px; }
+  .step .n{ font-family:var(--mono); font-size:11px; font-weight:700; color:var(--blue); letter-spacing:.08em; }
+  .step .t{ margin-top:4px; font-size:16.5px; font-weight:800; letter-spacing:-.03em; }
+  .step .s{ margin-top:3px; font-size:13px; color:var(--muted); font-weight:500; line-height:1.45; }
+  .step.final{ background:var(--blue); border-color:var(--blue); color:#fff; }
+  .step.final .n{ color:#C9D3FF; } .step.final .s{ color:#DCE3FF; }
+
+  /* info table */
+  .info{ margin-top:16px; background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+  .row{ display:grid; grid-template-columns:72px 1fr; gap:10px; padding:13px 18px; font-size:15px; font-weight:600; line-height:1.5; }
+  .row + .row{ border-top:1px solid var(--line); }
+  .row .k{ font-size:13px; font-weight:800; color:var(--muted); padding-top:1px; }
+
+  /* faq */
+  .faqs{ margin-top:16px; }
+  details.faq{ background:#fff; border:1px solid var(--line); border-radius:16px; }
+  details.faq + details.faq{ margin-top:8px; }
   details.faq summary{
-    list-style:none; cursor:pointer;
-    display:flex; justify-content:space-between; align-items:center; gap:12px;
-    padding:14px 18px; font-weight:800; font-size:0.95rem;
+    list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:16px 18px; font-size:15.5px; font-weight:800; letter-spacing:-.02em;
   }
   details.faq summary::-webkit-details-marker{ display:none; }
-  details.faq summary::after{ content:'+'; font-family:var(--display); font-size:1.3rem; opacity:0.5; }
-  details.faq[open] summary::after{ content:'−'; }
-  details.faq p{ padding:0 18px 16px; font-size:0.86rem; color:var(--muted); line-height:1.6; font-weight:500; }
+  details.faq summary::after{
+    content:""; width:10px; height:10px; flex-shrink:0; margin-top:-4px;
+    border-right:2.5px solid var(--muted); border-bottom:2.5px solid var(--muted);
+    transform:rotate(45deg); transition:transform .2s;
+  }
+  details.faq[open] summary::after{ transform:rotate(-135deg); margin-top:4px; }
+  details.faq p{ padding:0 18px 16px; font-size:14.5px; color:var(--muted); line-height:1.65; font-weight:500; }
 
-  footer{ text-align:center; margin-top:40px; font-family:var(--mono); font-size:0.72rem; color:var(--muted); }
+  /* final cta */
+  .final-cta{
+    margin-top:34px; border-radius:22px; overflow:hidden; color:#fff; text-align:center;
+    background:radial-gradient(circle at 50% 0%, rgba(47,84,255,.55), rgba(47,84,255,0) 65%), var(--navy);
+    padding:30px 22px 22px;
+  }
+  .final-cta .k{ font-size:14px; font-weight:700; color:var(--blue-2); }
+  .final-cta h2{ margin-top:6px; font-size:28px; }
+  .final-cta p{ margin-top:8px; font-size:14.5px; color:#C3CBE3; line-height:1.6; }
+  .final-cta .btn{ margin-top:10px; }
+  .final-cta .btn-primary{ margin-top:20px; }
+  .final-cta .btn-ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.28); }
+  .final-cta .btn-ghost:hover{ border-color:#fff; }
+
+  footer{ padding:28px 0 8px; text-align:center; font-size:12.5px; color:var(--muted); line-height:1.7; }
+  footer .mono{ font-size:11.5px; }
+
+  /* sticky apply bar */
+  .sticky{
+    position:fixed; left:0; right:0; bottom:0; z-index:20;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg, rgba(244,246,250,0), rgba(244,246,250,.96) 30%);
+    transform:translateY(110%); transition:transform .25s ease;
+  }
+  .sticky.show{ transform:none; }
+  .sticky .inner{ max-width:488px; margin:0 auto; display:flex; gap:8px; }
+  .sticky .btn{ padding:15px 18px; }
+  .sticky .ask{
+    flex-shrink:0; width:56px; display:grid; place-items:center; border-radius:14px;
+    background:#fff; border:1.5px solid var(--line); text-decoration:none;
+  }
+
+  /* scroll reveal (only when JS is on) */
+  .js .reveal{ opacity:0; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease; }
+  .js .reveal.in{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{ animation:none !important; transition:none !important; }
+    .js .reveal{ opacity:1; transform:none; }
+    html{ scroll-behavior:auto; }
+  }
+  @media (min-width:560px){
+    .hero{ padding-bottom:48px; }
+    .steps{ grid-template-columns:repeat(4,1fr); }
+  }
+  @media (min-width:900px){
+    .hero{ padding-bottom:72px; }
+    .hero .col{
+      max-width:1000px; display:grid; grid-template-columns:1fr 340px; column-gap:56px;
+      grid-auto-rows:min-content;
+    }
+    .hero .col > *{ grid-column:1; }
+    .hero .topbar{ grid-column:1 / -1; }
+    .hero .badge-stage{ grid-column:2; grid-row:2 / span 6; margin-top:28px; }
+    .hero .try{ margin-top:28px; max-width:440px; }
+    .hero .btn-primary, .hero .fine{ max-width:440px; }
+    .hero .fine{ text-align:left; }
+    .kicker{ margin-top:72px; }
+    main.col{ max-width:600px; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="head">
-    <div class="logo">원클릭 <span class="spark">유니온</span></div>
-    <div class="desc">수도권 대학생 바이브 코딩 연합 동아리</div>
-    <span class="badge">⚡ 2026 하반기 모집 중</span>
+
+<header class="hero">
+  <div class="col">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"><svg width="15" height="18" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 1 L2 21 L7 16.5 L10.5 24 L14 22.5 L10.5 15 L17.5 15 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        ONE-CLICK UNION
+      </div>
+      <span class="status"><i></i>2026 하반기 모집 중</span>
+    </div>
+
+    <p class="kicker">코딩 몰라도 지원 가능한</p>
+    <h1>개발자 공채</h1>
+    <p class="lead">수도권 대학생 <b>바이브 코딩</b> 연합 동아리 원클릭 유니온.<br>AI한테 말로 시켜서,<br><b>6주 만에 내 서비스를 배포</b>까지 해요.</p>
+
+    <div class="badge-stage" aria-hidden="true">
+      <svg class="lanyard" viewBox="0 0 180 86">
+        <polygon points="18,0 44,0 92,78 76,82" fill="#2F54FF"/>
+        <polygon points="136,0 162,0 104,82 88,78" fill="#2440D6"/>
+        <line x1="31" y1="0" x2="84" y2="78" stroke="#fff" stroke-opacity=".4" stroke-width="1.2" stroke-dasharray="5 5"/>
+        <line x1="149" y1="0" x2="96" y2="78" stroke="#fff" stroke-opacity=".3" stroke-width="1.2" stroke-dasharray="5 5"/>
+        <rect x="74" y="70" width="32" height="22" rx="5" fill="#C9CED8"/>
+        <rect x="81" y="77" width="18" height="7" rx="3" fill="#0E1B3D"/>
+      </svg>
+      <div class="badge swing" id="badge">
+        <div class="slot"></div>
+        <div class="bbrand">
+          <span class="mark"><svg width="10" height="12" viewBox="0 0 22 26"><path d="M2 1 L2 21 L7 16.5 L10.5 24 L14 22.5 L10.5 15 L17.5 15 Z" fill="#fff" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></span>
+          ONE-CLICK UNION
+        </div>
+        <div class="photo"><svg width="86" height="98" viewBox="0 0 112 128"><circle cx="56" cy="50" r="22" fill="#B9C6FF"/><path d="M14 128 C16 96 34 82 56 82 C78 82 96 96 98 128 Z" fill="#B9C6FF"/></svg></div>
+        <div class="name" id="badge-name">YOUR NAME</div>
+        <div class="role">바이브 코더 · 2026 하반기</div>
+        <div class="code">
+          <svg class="bars" id="bars" viewBox="0 0 210 26" preserveAspectRatio="none"></svg>
+          <div class="num" id="badge-no">NO. 2026-001</div>
+        </div>
+        <div class="stripe"></div>
+      </div>
+    </div>
+
+    <div class="try">
+      <label for="name-input">사원증에 내 이름 넣어보기</label>
+      <input id="name-input" type="text" maxlength="10" autocomplete="off" placeholder="이름을 입력해 보세요">
+    </div>
+    <a class="btn btn-primary" id="hero-cta" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">지원서 작성하기 · 3분</a>
+    <p class="fine">선착순 마감 · 회비 0원 · 전공·코딩 경험 무관</p>
+  </div>
+</header>
+
+<main class="col">
+  <div class="stats reveal">
+    <div class="stat"><b>6주</b><span>과정</span></div>
+    <div class="stat"><b>30명</b><span>학교당 최대 5명</span></div>
+    <div class="stat"><b>0원</b><span>회비</span></div>
+    <div class="stat"><b>격주 토</b><span>오후 모임</span></div>
   </div>
 
-  <div class="section-label">▶ 지금 신청하기</div>
-  <a class="link cta" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">
-    <span class="emoji">📝</span>
-    <span class="txt"><div class="t">하반기 지원서 작성</div><div class="s">3분이면 끝나요 · 선착순</div></span>
-    <span class="arrow">→</span>
-  </a>
+  <!-- demos -->
+  <section class="block" id="demo">
+    <div class="reveal">
+      <p class="eyebrow">DEMO</p>
+      <h2>말로는 안 믿기실 테니까</h2>
+      <p class="desc">운영진이 이 커리큘럼대로 직접 만들어 배포한 서비스예요.<br><b>2주차면 이 정도는 직접 만들어요.</b> 눌러서 써보세요.</p>
+    </div>
 
-  <div class="section-label">▶ 직접 써보기 (우리가 만든 것들)</div>
-  <a class="link" href="https://vibe-code2.vercel.app/" target="_blank" rel="noopener">
-    <span class="emoji">📄</span>
-    <span class="txt"><div class="t">클릭 3줄 요약기</div><div class="s">긴 글을 3줄로 요약</div></span>
-    <span class="arrow">→</span>
-  </a>
-  <a class="link" href="https://vibe-code-tawny.vercel.app/" target="_blank" rel="noopener">
-    <span class="emoji">✉️</span>
-    <span class="txt"><div class="t">클릭 공손 번역기</div><div class="s">교수님께 보낼 메일로 변환</div></span>
-    <span class="arrow">→</span>
-  </a>
-  <a class="link" href="https://vibecode3-nine.vercel.app/" target="_blank" rel="noopener">
-    <span class="emoji">🎨</span>
-    <span class="txt"><div class="t">클릭 이미지 공방</div><div class="s">행사 배너·썸네일 이미지 생성</div></span>
-    <span class="arrow">→</span>
-  </a>
+    <a class="demo reveal" href="https://vibe-code-tawny.vercel.app/" target="_blank" rel="noopener">
+      <div class="demo-head">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#2F54FF" stroke-width="2.2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="17" height="13" rx="2.5"/><path d="M3.5 6 L11 12 L18.5 6" stroke-linecap="round"/></svg></span>
+        <div><div class="t">클릭 공손 번역기</div><div class="s">하고 싶은 말을 교수님께 보낼 메일로</div></div>
+        <span class="go">써보기 →</span>
+      </div>
+      <div class="io">
+        <div class="lbl">입력</div>
+        <div class="in">교수님 저 이번 과제 하루만 늦게 내도 돼요? 알바가 갑자기 잡혀서 못했어요</div>
+        <div class="arrow">클릭 한 번</div>
+        <div class="out mail" id="out-polish">
+          <p><b>제목: 과제 제출 기한 연장 요청</b></p>
+          <p>안녕하세요, 교수님. 저는 [학과]의 [이름]입니다. 이번 과제 제출이 지연될 수 있어 하루 연장을 요청드립니다. 갑작스런 알바 일정으로 과제에 충분히 시간을 할애하지 못했습니다. 교수님의 이해와 허락을 부탁드립니다. 감사합니다.</p>
+        </div>
+      </div>
+    </a>
 
-  <div class="section-label">▶ 6주 커리큘럼</div>
-  <div class="panel">
-    <div class="cap">매 회차 <b>시연 10분 → 실습 60분 → 공유 15분 → 과제 안내 5분</b></div>
-    <div class="week"><span class="w">W1</span><div><div class="t">아이디어를 첫 화면으로</div><div class="s">내 서비스의 얼굴이 될 배포된 페이지</div></div></div>
-    <div class="week"><span class="w">W2</span><div><div class="t">무료 AI를 심장으로 <span class="tag">내 AI 서비스 완성</span></div><div class="s">AI가 실제로 작동하는 내 서비스</div></div></div>
-    <div class="week"><span class="w">W3</span><div><div class="t">진짜 사용자를 위한 다듬기</div><div class="s">남이 써도 안 깨지는 완성도 있는 v1</div></div></div>
-    <div class="week"><span class="w">W4</span><div><div class="t">데이터로 똑똑하게 <span class="tag">선택 심화</span></div><div class="s">데이터·기능이 확장된 서비스</div></div></div>
-    <div class="week"><span class="w">W5</span><div><div class="t">완성으로 몰아가기 <span class="tag">학교 섞인 팀</span></div><div class="s">팀 리뷰로 마무리된 서비스</div></div></div>
-    <div class="week final"><span class="w">W6</span><div><div class="t">데모데이, 다 같이 발표</div><div class="s">배포 링크 + 발표 경험 + 네트워크</div></div></div>
+    <a class="demo reveal" href="https://vibe-code2.vercel.app/" target="_blank" rel="noopener">
+      <div class="demo-head">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#2F54FF" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="5" x2="19" y2="5"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="17" x2="13" y2="17"/></svg></span>
+        <div><div class="t">클릭 3줄 요약기</div><div class="s">긴 공지·기사·강의자료를 3줄로</div></div>
+        <span class="go">써보기 →</span>
+      </div>
+      <div class="io">
+        <div class="lbl">입력</div>
+        <div class="in">2026학년도 2학기 중간고사 기간 도서관 운영 시간 변경 안내입니다. 중간고사 기간인 10월 19일(월)부터 … (공지 전문 약 400자)</div>
+        <div class="arrow">클릭 한 번</div>
+        <div class="out" id="out-summary">
+          <ol>
+            <li>중간고사 기간(10/19~10/30) 중앙도서관 열람실 24시간 개방.</li>
+            <li>오전 6시~7시 청소로 이용 제한, 그룹스터디룸은 1인 1일 2시간 예약.</li>
+            <li>음식물 금지, 뚜껑 음료만 허용. 좌석 맡기 적발 시 1주일 배정 제한.</li>
+          </ol>
+          <div class="kw"><span>#중간고사</span><span>#열람실</span><span>#24시간</span><span>#그룹스터디룸</span><span>#음식물 금지</span></div>
+        </div>
+      </div>
+    </a>
+
+    <a class="demo reveal" href="https://vibecode3-nine.vercel.app/" target="_blank" rel="noopener">
+      <div class="demo-head">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#2F54FF" stroke-width="2.2" stroke-linejoin="round"><rect x="2.5" y="3.5" width="17" height="15" rx="2.5"/><circle cx="8" cy="9" r="1.8" fill="#2F54FF" stroke="none"/><path d="M3 16 L9 11.5 L13 14.5 L16 12 L19 14.5" stroke-linecap="round"/></svg></span>
+        <div><div class="t">클릭 이미지 공방</div><div class="s">행사 배너·발표 표지 이미지 생성</div></div>
+        <span class="go">써보기 →</span>
+      </div>
+      <div class="io">
+        <div class="lbl">입력</div>
+        <div class="in">대학교 가을 축제 부스 홍보 배너, 파란 하늘과 단풍</div>
+        <div class="arrow">스타일·비율 고르고 클릭 한 번</div>
+        <div class="out">
+          <div class="chips"><span class="chip">깔끔한 포스터</span><span class="chip">따뜻한 일러스트</span><span class="chip">레트로 감성</span><span class="chip">미니멀 배너</span><span class="chip">팝아트</span></div>
+          <p style="margin-top:8px;color:var(--muted)">글자 없는 배경 이미지가 나와요. 제목은 캔바·PPT로 올리면 끝.</p>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- curriculum -->
+  <section class="block" id="curriculum">
+    <div class="reveal">
+      <p class="eyebrow">CURRICULUM</p>
+      <h2>6주 온보딩</h2>
+      <p class="desc">AI 도구를 하나씩 배우는 게 아니라, <b>내 아이디어 하나를 진짜 서비스로</b> 키워요.</p>
+      <div class="cap">매 회차 90분 <span class="chip">시연 10</span><span class="chip">실습 60</span><span class="chip">공유 15</span><span class="chip">과제 안내 5</span></div>
+    </div>
+    <ol class="timeline">
+      <li class="reveal"><span class="node">W1</span><div class="body"><div class="t">아이디어를 첫 화면으로</div><div class="s">내 서비스의 얼굴이 될 배포된 페이지</div></div></li>
+      <li class="reveal"><span class="node">W2</span><div class="body"><div class="t">무료 AI를 심장으로 <span class="tag">내 AI 서비스 완성</span></div><div class="s">AI가 실제로 작동하는 내 서비스</div></div></li>
+      <li class="reveal"><span class="node">W3</span><div class="body"><div class="t">진짜 사용자를 위한 다듬기</div><div class="s">남이 써도 안 깨지는 완성도 있는 v1</div></div></li>
+      <li class="reveal"><span class="node">W4</span><div class="body"><div class="t">데이터로 똑똑하게 <span class="tag opt">선택 심화</span></div><div class="s">데이터·기능이 확장된 서비스</div></div></li>
+      <li class="reveal"><span class="node">W5</span><div class="body"><div class="t">완성으로 몰아가기 <span class="tag">학교 섞인 팀</span></div><div class="s">팀 리뷰로 마무리된 서비스</div></div></li>
+      <li class="reveal final"><span class="node">W6</span><div class="body"><div class="t">데모데이, 다 같이 발표</div><div class="s">배포 링크 + 발표 경험 + 네트워크</div></div></li>
+    </ol>
+  </section>
+
+  <!-- process -->
+  <section class="block" id="process">
+    <div class="reveal">
+      <p class="eyebrow">PROCESS</p>
+      <h2>전형 절차</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="n">STEP 1</div><div class="t">지원서 제출</div><div class="s">3분이면 끝나요</div></div>
+      <div class="step"><div class="n">STEP 2</div><div class="t">전화 인터뷰</div><div class="s">서로 알아가는 가벼운 통화</div></div>
+      <div class="step"><div class="n">STEP 3</div><div class="t">첫 모임</div><div class="s">잘 맞는지 확인하는 자리</div></div>
+      <div class="step final"><div class="n">STEP 4</div><div class="t">최종 합류</div><div class="s">6주 온보딩 시작</div></div>
+    </div>
+  </section>
+
+  <!-- info -->
+  <section class="block" id="info">
+    <div class="reveal">
+      <p class="eyebrow">INFO</p>
+      <h2>모집 정보</h2>
+    </div>
+    <div class="info reveal">
+      <div class="row"><span class="k">대상</span><span>수도권 대학(원) 재학·휴학생 누구나 (전공·경험 무관)</span></div>
+      <div class="row"><span class="k">인원</span><span>30명 (학교당 최대 5명)</span></div>
+      <div class="row"><span class="k">기간</span><span>6주 · 격주 토요일 오후</span></div>
+      <div class="row"><span class="k">장소</span><span>강남 · 홍대 · 신도림 등 스터디룸</span></div>
+      <div class="row"><span class="k">비용</span><span>회비 없음 (개인 AI 구독만 필요)</span></div>
+      <div class="row"><span class="k">준비물</span><span>노트북, 만들고 싶은 것 하나</span></div>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section class="block" id="faq">
+    <div class="reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>자주 묻는 질문</h2>
+    </div>
+    <div class="faqs reveal">
+      <details class="faq">
+        <summary>진짜 코딩 아예 몰라도 되나요?</summary>
+        <p>네. 1주차부터 AI가 코드를 대신 짜줍니다. 여러분은 '무엇을 만들지'만 생각하면 돼요. 오히려 코딩을 몰라도 편견 없이 잘 시작합니다.</p>
+      </details>
+      <details class="faq">
+        <summary>AI 구독은 꼭 필요한가요?</summary>
+        <p>원활한 실습을 위해 권장하지만, 수업에서 무료 도구·무료 API도 함께 다룹니다.</p>
+      </details>
+      <details class="faq">
+        <summary>우리 학교도 대상인가요?</summary>
+        <p>수도권 소재 대학이면 어디든 환영합니다. '연합' 동아리라 여러 학교 학생들이 함께해요.</p>
+      </details>
+      <details class="faq">
+        <summary>노트북이 없으면 참여할 수 있나요?</summary>
+        <p>노트북은 필수입니다. 조원과 함께 볼 수는 있지만 개인 노트북을 권장합니다.</p>
+      </details>
+      <details class="faq">
+        <summary>격주면 시간 부담이 적나요?</summary>
+        <p>네. 2주에 한 번 토요일에 진행합니다.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- final cta -->
+  <section class="final-cta reveal" id="apply">
+    <p class="k">수료증 말고, 서비스 링크가 남는 6주</p>
+    <h2>마음 정했다면</h2>
+    <p>준비물은 노트북, 그리고 만들고 싶은 것 하나.<br>선착순이라 정원이 차면 일찍 마감돼요.</p>
+    <a class="btn btn-primary" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">지원서 작성하기 · 3분</a>
+    <a class="btn btn-ghost" href="https://open.kakao.com/o/snhmwHRi" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.5 h14 a2 2 0 0 1 2 2 v8 a2 2 0 0 1 -2 2 h-8 l-4.5 3.5 v-3.5 h-1.5 a2 2 0 0 1 -2 -2 v-8 a2 2 0 0 1 2 -2 z"/></svg>
+      오픈카톡 문의방
+    </a>
+  </section>
+
+  <footer>
+    이 페이지도 원클릭 유니온 1주차 실습으로 만들 수 있어요 ⚡<br>
+    <span class="mono">© 2026 ONE-CLICK UNION</span>
+  </footer>
+</main>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div class="inner">
+    <a class="btn btn-primary" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener" tabindex="-1">지원하기 · 3분</a>
+    <a class="ask" href="https://open.kakao.com/o/snhmwHRi" target="_blank" rel="noopener" tabindex="-1" aria-label="오픈카톡 문의방">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0E1B3D" stroke-width="2.2" stroke-linejoin="round"><path d="M4 4.5 h14 a2 2 0 0 1 2 2 v8 a2 2 0 0 1 -2 2 h-8 l-4.5 3.5 v-3.5 h-1.5 a2 2 0 0 1 -2 -2 v-8 a2 2 0 0 1 2 -2 z"/></svg>
+    </a>
   </div>
-
-  <div class="section-label">▶ 모집 정보</div>
-  <div class="panel">
-    <div class="row"><span class="k">대상</span><span>수도권 대학(원) 재학·휴학생 누구나 (전공·경험 무관)</span></div>
-    <div class="row"><span class="k">인원</span><span>30명 (학교당 최대 5명)</span></div>
-    <div class="row"><span class="k">기간</span><span>6주 · 격주 토요일 오후</span></div>
-    <div class="row"><span class="k">장소</span><span>강남 · 홍대 · 신도림 등 스터디룸</span></div>
-    <div class="row"><span class="k">비용</span><span>회비 없음 (개인 AI 구독만 필요)</span></div>
-    <div class="row"><span class="k">준비물</span><span>노트북, 만들고 싶은 것 하나</span></div>
-  </div>
-
-  <div class="section-label">▶ 자주 묻는 질문</div>
-  <details class="faq">
-    <summary>진짜 코딩 아예 몰라도 되나요?</summary>
-    <p>네. 1주차부터 AI가 코드를 대신 짜줍니다. 여러분은 '무엇을 만들지'만 생각하면 돼요. 오히려 코딩을 몰라도 편견 없이 잘 시작합니다.</p>
-  </details>
-  <details class="faq">
-    <summary>AI 구독은 꼭 필요한가요?</summary>
-    <p>원활한 실습을 위해 권장하지만, 수업에서 무료 도구·무료 API도 함께 다룹니다.</p>
-  </details>
-  <details class="faq">
-    <summary>우리 학교도 대상인가요?</summary>
-    <p>수도권 소재 대학이면 어디든 환영합니다. '연합' 동아리라 여러 학교 학생들이 함께해요.</p>
-  </details>
-  <details class="faq">
-    <summary>노트북이 없으면 참여할 수 있나요?</summary>
-    <p>노트북은 필수입니다. 조원과 함께 볼 수는 있지만 개인 노트북을 권장합니다.</p>
-  </details>
-  <details class="faq">
-    <summary>격주면 시간 부담이 적나요?</summary>
-    <p>네. 2주에 한 번 토요일에 진행합니다.</p>
-  </details>
-
-  <div class="section-label">▶ 마음 정했다면</div>
-  <a class="link cta" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">
-    <span class="emoji">📝</span>
-    <span class="txt"><div class="t">하반기 지원서 작성</div><div class="s">3분이면 끝나요 · 선착순</div></span>
-    <span class="arrow">→</span>
-  </a>
-  <a class="link" href="https://open.kakao.com/o/snhmwHRi" target="_blank" rel="noopener">
-    <span class="emoji">💬</span>
-    <span class="txt"><div class="t">오픈카톡 문의방</div><div class="s">궁금한 건 편하게 물어보세요</div></span>
-    <span class="arrow">→</span>
-  </a>
-
-  <footer>이 페이지도 원클릭 유니온 1주차 실습으로 만들 수 있어요 ⚡</footer>
 </div>
 
+<script>
+  document.documentElement.classList.add('js');
+
+  // decorative barcode on the badge
+  (function () {
+    var w = [2,1,3,1,1,2,1,3,2,1,1,2,3,1,2,1,1,3,1,2,2,1,3,1,1,2,1,1,3,2,1,2,1,3,1,1,2,1,2,3,1,1,2,1,3,1,2,1];
+    var x = 0, out = '', dark = true;
+    for (var i = 0; i < w.length && x < 210; i++) {
+      var ww = w[i] * 2;
+      if (dark) out += '<rect x="' + x + '" y="0" width="' + ww + '" height="26"/>';
+      x += ww; dark = !dark;
+    }
+    var el = document.getElementById('bars');
+    el.setAttribute('viewBox', '0 0 ' + x + ' 26');
+    el.innerHTML = '<g fill="#0E1B3D">' + out + '</g>';
+  })();
+
+  // type your name onto the ID badge
+  (function () {
+    var input = document.getElementById('name-input');
+    var nameEl = document.getElementById('badge-name');
+    var noEl = document.getElementById('badge-no');
+    var cta = document.getElementById('hero-cta');
+    var badge = document.getElementById('badge');
+    var swingTimer;
+    input.addEventListener('input', function () {
+      var name = input.value.trim();
+      nameEl.textContent = name || 'YOUR NAME';
+      var h = 0;
+      for (var i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) % 997;
+      noEl.textContent = 'NO. 2026-' + String(name ? (h % 900) + 100 : 1).padStart(3, '0');
+      cta.textContent = name ? name + '님 사원증 받으러 가기 →' : '지원서 작성하기 · 3분';
+      clearTimeout(swingTimer);
+      swingTimer = setTimeout(function () {
+        badge.classList.remove('swing'); void badge.offsetWidth; badge.classList.add('swing');
+      }, 250);
+    });
+  })();
+
+  // scroll reveal
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+
+  // sticky apply bar: show once the hero button is gone, hide near the final CTA
+  (function () {
+    var bar = document.getElementById('sticky');
+    if (!('IntersectionObserver' in window)) return;
+    var heroGone = false, finalSeen = false;
+    function update() { bar.classList.toggle('show', heroGone && !finalSeen); }
+    new IntersectionObserver(function (en) { heroGone = !en[0].isIntersecting && en[0].boundingClientRect.top < 0; update(); })
+      .observe(document.getElementById('hero-cta'));
+    new IntersectionObserver(function (en) { finalSeen = en[0].isIntersecting; update(); })
+      .observe(document.getElementById('apply'));
+  })();
+</script>
 </body>
 </html>
