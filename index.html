@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>원클릭 유니온 — 코딩 몰라도 지원 가능한 개발자 공채</title>
-<meta name="description" content="수도권 대학생 바이브 코딩 연합 동아리 원클릭 유니온 2026 하반기 모집. AI한테 말로 시켜서 6주 만에 내 서비스를 배포까지.">
+<meta name="description" content="수도권 대학생 바이브 코딩 연합 동아리 원클릭 유니온 추가 기수 모집 중 (겨울방학 참여 가능). AI한테 말로 시켜서 6번의 모임으로 내 서비스를 배포까지.">
 <meta name="theme-color" content="#0E1B3D">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oneclick-link.vercel.app/">
 <meta property="og:title" content="원클릭 유니온 | 코딩 몰라도 지원 가능한 개발자 공채">
-<meta property="og:description" content="수도권 대학생 바이브 코딩 연합 동아리 · 2026 하반기 모집. 6주 만에 내 서비스를 배포까지.">
+<meta property="og:description" content="수도권 대학생 바이브 코딩 연합 동아리 · 추가 기수 모집 중. 6번의 모임으로 내 서비스를 배포까지.">
 <meta property="og:image" content="https://oneclick-link.vercel.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -210,6 +210,15 @@
   .step.final{ background:var(--blue); border-color:var(--blue); color:#fff; }
   .step.final .n{ color:#C9D3FF; } .step.final .s{ color:#DCE3FF; }
 
+  /* about */
+  .about{ margin-top:16px; background:#fff; border:1px solid var(--line); border-radius:18px; padding:18px; }
+  .about .who{ display:flex; align-items:center; gap:12px; }
+  .about .avatar{ width:46px; height:46px; border-radius:14px; background:var(--navy); display:grid; place-items:center; flex-shrink:0; }
+  .about .t{ font-size:17px; font-weight:800; letter-spacing:-.03em; }
+  .about .s{ font-size:13.5px; color:var(--muted); font-weight:600; margin-top:1px; }
+  .about p{ margin-top:12px; font-size:15px; line-height:1.65; font-weight:500; }
+  .about .chips{ margin-top:12px; }
+
   /* info table */
   .info{ margin-top:16px; background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
   .row{ display:grid; grid-template-columns:72px 1fr; gap:10px; padding:13px 18px; font-size:15px; font-weight:600; line-height:1.5; }
@@ -304,12 +313,12 @@
         <span class="mark"><svg width="15" height="18" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 1 L2 21 L7 16.5 L10.5 24 L14 22.5 L10.5 15 L17.5 15 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
         ONE-CLICK UNION
       </div>
-      <span class="status"><i></i>2026 하반기 모집 중</span>
+      <span class="status"><i></i>추가 기수 모집 중</span>
     </div>
 
     <p class="kicker">코딩 몰라도 지원 가능한</p>
     <h1>개발자 공채</h1>
-    <p class="lead">수도권 대학생 <b>바이브 코딩</b> 연합 동아리 원클릭 유니온.<br>AI한테 말로 시켜서,<br><b>6주 만에 내 서비스를 배포</b>까지 해요.</p>
+    <p class="lead">수도권 대학생 <b>바이브 코딩</b> 연합 동아리 원클릭 유니온.<br>AI한테 말로 시켜서,<br><b>6번의 모임으로 내 서비스를 배포</b>까지 해요.</p>
 
     <div class="badge-stage" aria-hidden="true">
       <svg class="lanyard" viewBox="0 0 180 86">
@@ -342,15 +351,15 @@
       <input id="name-input" type="text" maxlength="10" autocomplete="off" placeholder="이름을 입력해 보세요">
     </div>
     <a class="btn btn-primary" id="hero-cta" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">지원서 작성하기 · 3분</a>
-    <p class="fine">선착순 마감 · 회비 0원 · 전공·코딩 경험 무관</p>
+    <p class="fine">선착순 마감 · 겨울방학 참여 가능 · 전공·코딩 경험 무관</p>
   </div>
 </header>
 
 <main class="col">
   <div class="stats reveal">
-    <div class="stat"><b>6주</b><span>과정</span></div>
+    <div class="stat"><b>6회</b><span>약 3개월 과정</span></div>
     <div class="stat"><b>30명</b><span>학교당 최대 5명</span></div>
-    <div class="stat"><b>0원</b><span>회비</span></div>
+    <div class="stat"><b>0원</b><span>회비 · 장소비 1/n</span></div>
     <div class="stat"><b>격주 토</b><span>오후 모임</span></div>
   </div>
 
@@ -359,7 +368,7 @@
     <div class="reveal">
       <p class="eyebrow">DEMO</p>
       <h2>말로는 안 믿기실 테니까</h2>
-      <p class="desc">운영진이 이 커리큘럼대로 직접 만들어 배포한 서비스예요.<br><b>2주차면 이 정도는 직접 만들어요.</b> 눌러서 써보세요.</p>
+      <p class="desc">운영진이 이 커리큘럼대로 직접 만들어 배포한 서비스예요.<br><b>2회차면 이 정도는 직접 만들어요.</b> 눌러서 써보세요.</p>
     </div>
 
     <a class="demo reveal" href="https://vibe-code-tawny.vercel.app/" target="_blank" rel="noopener">
@@ -422,18 +431,34 @@
   <section class="block" id="curriculum">
     <div class="reveal">
       <p class="eyebrow">CURRICULUM</p>
-      <h2>6주 온보딩</h2>
+      <h2>6회차 온보딩</h2>
       <p class="desc">AI 도구를 하나씩 배우는 게 아니라, <b>내 아이디어 하나를 진짜 서비스로</b> 키워요.</p>
       <div class="cap">매 회차 90분 <span class="chip">시연 10</span><span class="chip">실습 60</span><span class="chip">공유 15</span><span class="chip">과제 안내 5</span></div>
     </div>
     <ol class="timeline">
-      <li class="reveal"><span class="node">W1</span><div class="body"><div class="t">아이디어를 첫 화면으로</div><div class="s">내 서비스의 얼굴이 될 배포된 페이지</div></div></li>
-      <li class="reveal"><span class="node">W2</span><div class="body"><div class="t">무료 AI를 심장으로 <span class="tag">내 AI 서비스 완성</span></div><div class="s">AI가 실제로 작동하는 내 서비스</div></div></li>
-      <li class="reveal"><span class="node">W3</span><div class="body"><div class="t">진짜 사용자를 위한 다듬기</div><div class="s">남이 써도 안 깨지는 완성도 있는 v1</div></div></li>
-      <li class="reveal"><span class="node">W4</span><div class="body"><div class="t">데이터로 똑똑하게 <span class="tag opt">선택 심화</span></div><div class="s">데이터·기능이 확장된 서비스</div></div></li>
-      <li class="reveal"><span class="node">W5</span><div class="body"><div class="t">완성으로 몰아가기 <span class="tag">학교 섞인 팀</span></div><div class="s">팀 리뷰로 마무리된 서비스</div></div></li>
-      <li class="reveal final"><span class="node">W6</span><div class="body"><div class="t">데모데이, 다 같이 발표</div><div class="s">배포 링크 + 발표 경험 + 네트워크</div></div></li>
+      <li class="reveal"><span class="node">1회</span><div class="body"><div class="t">아이디어를 첫 화면으로</div><div class="s">내 서비스의 얼굴이 될 배포된 페이지</div></div></li>
+      <li class="reveal"><span class="node">2회</span><div class="body"><div class="t">무료 AI를 심장으로 <span class="tag">내 AI 서비스 완성</span></div><div class="s">AI가 실제로 작동하는 내 서비스</div></div></li>
+      <li class="reveal"><span class="node">3회</span><div class="body"><div class="t">진짜 사용자를 위한 다듬기</div><div class="s">남이 써도 안 깨지는 완성도 있는 v1</div></div></li>
+      <li class="reveal"><span class="node">4회</span><div class="body"><div class="t">데이터로 똑똑하게 <span class="tag opt">선택 심화</span></div><div class="s">데이터·기능이 확장된 서비스</div></div></li>
+      <li class="reveal"><span class="node">5회</span><div class="body"><div class="t">완성으로 몰아가기 <span class="tag">학교 섞인 팀</span></div><div class="s">팀 리뷰로 마무리된 서비스</div></div></li>
+      <li class="reveal final"><span class="node">6회</span><div class="body"><div class="t">데모데이, 다 같이 발표</div><div class="s">배포 링크 + 발표 경험 + 네트워크</div></div></li>
     </ol>
+  </section>
+
+  <!-- about -->
+  <section class="block" id="about">
+    <div class="reveal">
+      <p class="eyebrow">ABOUT</p>
+      <h2>누가 운영하나요?</h2>
+    </div>
+    <div class="about reveal">
+      <div class="who">
+        <span class="avatar"><svg width="20" height="24" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 1 L2 21 L7 16.5 L10.5 24 L14 22.5 L10.5 15 L17.5 15 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <div><div class="t">원클릭 유니온 운영진</div><div class="s">중앙대학교 전자공학과 4학년</div></div>
+      </div>
+      <p>서로 아이디어를 나누려고 만든 모임이에요. 위의 데모 3개도 운영진이 이 커리큘럼대로 직접 만들었어요.</p>
+      <div class="chips"><span class="chip">하반기 기수 진행 중</span><span class="chip">추가 기수 모집 중</span><span class="chip">겨울방학 참여 가능</span></div>
+    </div>
   </section>
 
   <!-- process -->
@@ -446,7 +471,7 @@
       <div class="step"><div class="n">STEP 1</div><div class="t">지원서 제출</div><div class="s">3분이면 끝나요</div></div>
       <div class="step"><div class="n">STEP 2</div><div class="t">전화 인터뷰</div><div class="s">서로 알아가는 가벼운 통화</div></div>
       <div class="step"><div class="n">STEP 3</div><div class="t">첫 모임</div><div class="s">잘 맞는지 확인하는 자리</div></div>
-      <div class="step final"><div class="n">STEP 4</div><div class="t">최종 합류</div><div class="s">6주 온보딩 시작</div></div>
+      <div class="step final"><div class="n">STEP 4</div><div class="t">최종 합류</div><div class="s">6회차 온보딩 시작</div></div>
     </div>
   </section>
 
@@ -457,11 +482,12 @@
       <h2>모집 정보</h2>
     </div>
     <div class="info reveal">
+      <div class="row"><span class="k">모집</span><span>하반기 기수 진행 중 · <b style="color:var(--blue)">추가 기수 모집 중</b> (겨울방학 참여 가능)</span></div>
       <div class="row"><span class="k">대상</span><span>수도권 대학(원) 재학·휴학생 누구나 (전공·경험 무관)</span></div>
       <div class="row"><span class="k">인원</span><span>30명 (학교당 최대 5명)</span></div>
-      <div class="row"><span class="k">기간</span><span>6주 · 격주 토요일 오후</span></div>
+      <div class="row"><span class="k">기간</span><span>6회 · 격주 토요일 오후 (약 3개월)</span></div>
       <div class="row"><span class="k">장소</span><span>강남 · 홍대 · 신도림 등 스터디룸</span></div>
-      <div class="row"><span class="k">비용</span><span>회비 없음 (개인 AI 구독만 필요)</span></div>
+      <div class="row"><span class="k">비용</span><span>회비 없음 · 스터디룸 대여비만 참석자 1/n · 개인 AI 구독</span></div>
       <div class="row"><span class="k">준비물</span><span>노트북, 만들고 싶은 것 하나</span></div>
     </div>
   </section>
@@ -475,7 +501,7 @@
     <div class="faqs reveal">
       <details class="faq">
         <summary>진짜 코딩 아예 몰라도 되나요?</summary>
-        <p>네. 1주차부터 AI가 코드를 대신 짜줍니다. 여러분은 '무엇을 만들지'만 생각하면 돼요. 오히려 코딩을 몰라도 편견 없이 잘 시작합니다.</p>
+        <p>네. 첫 모임부터 AI가 코드를 대신 짜줍니다. 여러분은 '무엇을 만들지'만 생각하면 돼요. 오히려 코딩을 몰라도 편견 없이 잘 시작합니다.</p>
       </details>
       <details class="faq">
         <summary>AI 구독은 꼭 필요한가요?</summary>
@@ -490,6 +516,14 @@
         <p>노트북은 필수입니다. 조원과 함께 볼 수는 있지만 개인 노트북을 권장합니다.</p>
       </details>
       <details class="faq">
+        <summary>회비가 정말 없나요?</summary>
+        <p>회비는 없어요. 스터디룸 대여비만 그날 참석한 사람끼리 1/n로 나눠요. AI 구독은 개인 선택이고, 무료 도구도 함께 다뤄요.</p>
+      </details>
+      <details class="faq">
+        <summary>지금 지원하면 언제부터 참여하나요?</summary>
+        <p>지금은 하반기 기수가 진행 중이고, 추가 기수를 모집하고 있어요. 겨울방학 동안 함께할 분도 지원할 수 있어요. 시작 일정은 전화 인터뷰 때 안내드려요.</p>
+      </details>
+      <details class="faq">
         <summary>격주면 시간 부담이 적나요?</summary>
         <p>네. 2주에 한 번 토요일에 진행합니다.</p>
       </details>
@@ -498,7 +532,7 @@
 
   <!-- final cta -->
   <section class="final-cta reveal" id="apply">
-    <p class="k">수료증 말고, 서비스 링크가 남는 6주</p>
+    <p class="k">수료증 말고, 서비스 링크가 남는 6번의 모임</p>
     <h2>마음 정했다면</h2>
     <p>준비물은 노트북, 그리고 만들고 싶은 것 하나.<br>선착순이라 정원이 차면 일찍 마감돼요.</p>
     <a class="btn btn-primary" href="https://forms.gle/wo9VbVuPv19Yo7f88" target="_blank" rel="noopener">지원서 작성하기 · 3분</a>
@@ -509,7 +543,7 @@
   </section>
 
   <footer>
-    이 페이지도 원클릭 유니온 1주차 실습으로 만들 수 있어요 ⚡<br>
+    이 페이지도 원클릭 유니온 1회차 실습으로 만들 수 있어요 ⚡<br>
     <span class="mono">© 2026 ONE-CLICK UNION</span>
   </footer>
 </main>
